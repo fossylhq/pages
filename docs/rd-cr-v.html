@@ -92159,65 +92159,6 @@ export { main };
         var wg = document.getElementById('webglPopup');
         if (wg) wg.classList.add('show');
       }
-
-      /* ── Panel open / close ────────────────────────────────────── */
-      var agentBtn      = document.getElementById('agentBtn');
-      var floorplanBtn  = document.getElementById('floorplanBtn');
-      var agentCard     = document.getElementById('agentCard');
-      var floorplanCard = document.getElementById('floorplanCard');
-      var agentClose    = document.getElementById('agentClose');
-      var fpClose       = document.getElementById('floorplanClose');
-
-      function openPanel(panel, btn, otherPanel, otherBtn) {
-        // close other panel first
-        otherPanel.classList.remove('open');
-        otherBtn && otherBtn.classList.remove('active');
-
-        var isOpen = panel.classList.contains('open');
-        if (isOpen) {
-          panel.classList.remove('open');
-          btn.classList.remove('active');
-        } else {
-          panel.classList.add('open');
-          btn.classList.add('active');
-        }
-      }
-
-      agentBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        openPanel(agentCard, agentBtn, floorplanCard, floorplanBtn);
-      });
-
-      floorplanBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        openPanel(floorplanCard, floorplanBtn, agentCard, agentBtn);
-      });
-
-      agentClose.addEventListener('click', function(e) {
-        e.stopPropagation();
-        agentCard.classList.remove('open');
-        agentBtn.classList.remove('active');
-      });
-
-      fpClose.addEventListener('click', function(e) {
-        e.stopPropagation();
-        floorplanCard.classList.remove('open');
-        floorplanBtn.classList.remove('active');
-      });
-
-      // Close panels when clicking on the canvas
-      document.addEventListener('pointerdown', function(e) {
-        var targetButton = e.target.closest('#agentBtn, #floorplanBtn');
-
-        if (!agentCard.contains(e.target) && targetButton !== agentBtn) {
-          agentCard.classList.remove('open');
-          agentBtn.classList.remove('active');
-        }
-        if (!floorplanCard.contains(e.target) && targetButton !== floorplanBtn) {
-          floorplanCard.classList.remove('open');
-          floorplanBtn.classList.remove('active');
-        }
-      });
     })();
     </script>
 
