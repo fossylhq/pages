@@ -112,37 +112,6 @@
               white-space: nowrap;
             }
             
-            /* branding link for third-party embeds */
-            #viewerBranding {
-              position: absolute;
-              top: max(16px, env(safe-area-inset-top));
-              left: max(16px, env(safe-area-inset-left));
-              display: flex;
-              align-items: center;
-              gap: 6px;
-              text-decoration: none;
-              white-space: nowrap;
-              cursor: pointer;
-              transition: color 150ms ease;
-              color: #E0DCDD;
-            }
-            #viewerBranding:hover {
-              color: #fff;
-            }
-            #viewerBranding > svg {
-              height: 16px;
-              width: auto;
-              flex-shrink: 0;
-              padding: 8px;
-              border-radius: 6px;
-              background-color: rgba(0, 0, 0, 0.3);
-            }
-            #viewerBranding > span {
-              font-size: 14px;
-              font-weight: bold;
-              
-            }
-            
             /* poster */
             #poster {
               display: none;
@@ -83245,7 +83214,7 @@ const initUI = (global) => {
         'showCollision', 'desktopShowCollisionHelp',
         'tooltip',
         'annotationNav', 'annotationPrev', 'annotationNext', 'annotationInfo', 'annotationNavTitle',
-        'viewerBranding', 'viewerTitle', 'appVersionLabel',
+        'viewerTitle', 'appVersionLabel',
         'xrModal', 'xrModalOk', 'xrModalCancel'
     ].reduce((acc, id) => {
         acc[id] = document.getElementById(id);
@@ -83683,8 +83652,6 @@ const initUI = (global) => {
         if (viewUrl.pathname === '/s') {
             viewUrl.pathname = '/view';
         }
-        dom.viewerBranding.href = viewUrl.toString();
-        dom.viewerBranding.classList.remove('hidden');
         dom.viewerTitle.href = viewUrl.toString();
     }
 };
